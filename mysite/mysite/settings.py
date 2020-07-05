@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+#AUTH_USER_MODEL = 'rental.User' #changes the built-in user models to ours
+AUTH_USER_MODEL = 'rental.User'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -85,9 +88,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE' : 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_project',
-        'USER': 'django_user',
-        'PASSWORD': 'django_user',
+        'NAME': 'new_django',
+        'USER': 'new_django_user',
+        'PASSWORD': 'new_django_user',
         'HOST': 'localhost',
         'PORT': '',
     }
