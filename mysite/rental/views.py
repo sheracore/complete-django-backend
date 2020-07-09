@@ -13,3 +13,11 @@ class BelongingViewset(viewsets.ModelViewSet):
 class BorrowedViewset(viewsets.ModelViewSet):
     queryset = models.Borrowed.objects.all()
     serializer_class = serializers.BorrowedSerializer
+
+class CategoryViewset(viewsets.ModelViewSet):
+    queryset = models.Category.objects.all()
+    serializer_class = serializers.CategorySerializer
+
+class MovieViewset(viewsets.ModelViewSet):
+    queryset = models.Movie.objects.all()
+    serializer_class = serializers.MovieSerializer
