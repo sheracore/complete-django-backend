@@ -24,8 +24,12 @@ from django.urls import include, path
 from django.contrib import admin
 from .api import router
 
+from rental import views as myapp_views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/login/',myapp_views.UserLoginApiView.as_view()),
     path('api/v1/', include(router.urls)),
     # path(r'api/v1/auth/', include('rest_auth.urls')),)
 ]

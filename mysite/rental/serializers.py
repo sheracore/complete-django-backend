@@ -42,17 +42,27 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
         model = models.Category
         # fields = ('pk','created','name', 'movies')
         fields = ('url','pk','created','name', 'movies')
-        # extra_kwargs = {
-        #     movies : {
-        #     'write_only' : True
-        #     'style' : {'input_type' : 'password'}
-        #     }
-        # }
-    # def create(self, validated_data):
-    #     """ Create and return a new category """
-    #     category = models.Category.objects.create_category(
-    #         name=validated_data['name']
-    #         )
-    #     return category
+        
+
+class UserSerializer(serializers.ModelSerializer):
+    """ Serializer a user object """
+    
+    class Meta:
+        model = models.User
+        fields = ('pk','email', 'password')
+        extra_kwargs = {
+         'password' : {
+             'write_only' : True,
+             'style' : {'input_type' : 'password'}
+         }
+        }
+
+    def create(self, validated_data):
+        """ create and return new user """
+        user = models.User.objects.create_user(
+            email=validated_data['email'],
+            password=validated_data['password']
+            )
+        return user
 
 
